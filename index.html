@@ -670,7 +670,20 @@
       border-top: 1px solid var(--border-color);
     }
   </style>
-  <script defer src="https://analytics.getnextfind.com/script.js" data-website-id="76cb2154-2143-4330-8daa-dd1b5050745e"></script>
+ <!-- Umami Analytics с автоподстановкой поддомена -->
+<script>
+  function prependHost(type, payload) {
+    if (payload && payload.url) {
+      payload.url = window.location.hostname + payload.url;
+    }
+    return payload;
+  }
+</script>
+<script defer 
+  src="https://analytics.getnextfind.com/script.js" 
+  data-website-id="76cb2154-2143-4330-8daa-dd1b5050745e" 
+  data-before-send="prependHost">
+</script>
 </head>
 <body>
 
